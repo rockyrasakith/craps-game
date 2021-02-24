@@ -1,4 +1,11 @@
+document.querySelector(".roll-btn").style.visibility ="hidden";
 
+//random numbers
+randomNumber1 = Math.floor(Math.random() * 6) + 1;
+randomNumber2 = Math.floor(Math.random() * 6) + 1;
+point = randomNumber1 + randomNumber2;
+    
+    
     if (randomNumber1 === 1) {
         document.querySelector(".img1").setAttribute("src", "images/dice1.png");
     } else if (randomNumber1 === 2) {
@@ -28,11 +35,12 @@
         document.querySelector(".img2").setAttribute("src", "images/dice6.png");
     }
 
-})
 
-
-//Create a next roll function after the point number!
-
-// function nextRoll() {
-//     var pointCheck =
-// }
+    //check point 
+    if (point === 7 || point === 11) {
+        document.querySelector("#game-message").innerText = "Win!";
+    } else if (point === 2 | point === 3 | point === 12) {
+        document.querySelector("#game-message").innerText = "Crap Out!";
+    } else {
+        document.querySelector(".roll-btn").style.visibility = "visible";
+    }
